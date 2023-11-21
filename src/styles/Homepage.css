@@ -1,0 +1,72 @@
+/* Homepage.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito+Sans:opsz@6..12&family=Poppins:wght@600&display=swap');
+
+body {
+  background-color: #000000;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.Container {
+  display: flex;
+  flex-direction: row;
+}
+
+h3 {
+  color: white;
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+.SearchBox {
+  background: #1D1C1F;
+  margin-left: 150px;
+  margin-top: 20px;
+  width: 350px;
+  height: 40px;
+  border-radius: 25px;
+}
+
+.leftBox,
+.rightBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 20px;
+}
+
+.weather,
+.daysforecast,
+.highlights,
+.today {
+  margin: 0 10px;
+}
+
+.weather {
+  background-color: #1D1C1F;
+  width: 350px;
+  height: 200px;
+  border-radius: 20px;
+}
+
+.highlights
+{
+background-color: #1D1C1F;
+margin-top: -50px;
+  width: 350px;
+  height: 150px;
+  border-radius: 20px;
+}
+.today {
+    background-color: #1D1C1F;
+    margin-left: -160px;
+    border-radius: 20px;
+}
+
+.daysforecast {
+  display: flex;
+  margin-left: -160px;
+  flex-direction: column; /* Stack daysforecast on top of weather */
+  background-color: #1D1C1F;
+  height: 250px;
+  border-radius: 20px;
+}
