@@ -1,29 +1,27 @@
-import {React,useState} from 'react';
+import { React } from 'react';
 import "../styles/Homepage.css";
 import Header from './Header';
-import {FetchData,CurrentDay,todayData} from "../services/fechdata";
-
-
-const {NextFiveDay} = FetchData();
-const {currentPower, period_length, FUllDay} = CurrentDay();
+import { FetchData, CurrentDay} from "../services/fechdata";
 
 const Homepage = () => {
-  console.log("recieved from fetch data:",todayData.value);
+  // CurrentDay component
+  // const { todayValue, count, todaySeries } = CurrentDay();
+  //console.log("recieved from fetch data:", todayData(todayValue));
+
   return (
     <div>
-<Header />
-<FetchData />
-<CurrentDay/>
-<div className='leftBox'>
-    <div className='weather'><h3>weather</h3></div>
-    <div className='daysforecast'><h3>5days</h3></div>
-</div>
-<div className='rightBox'>
-    <div className='highlights'><h3>Highlights</h3></div>
-    <div className='today'><h3>today</h3></div>
-</div>
-
-</div>
+      <Header />
+      <FetchData />
+      <CurrentDay />
+      <div className='leftBox'>
+        <div className='weather'><h3>weather</h3></div>
+        <div className='daysforecast'><h3>5days</h3></div>
+      </div>
+      <div className='rightBox'>
+        <div className='highlights'><h3>Highlights</h3></div>
+        <div className='today'><h3>today</h3></div>
+      </div>
+    </div>
   );
 }
 

@@ -51,10 +51,9 @@ const FetchData = () => {
         console.log(error);
       });
   }, []); // Empty dependency array to trigger the request once on component mount
-
-  return (
-   {futureData}
-  )
+  return <></>
+  //return {FutureData:futureData};
+  
 };
 
 
@@ -113,21 +112,21 @@ const CurrentDay = () => {
       });
   }, []);
 console.log("Todays VAlue is :",todayValue)
-  return (
-    todayValue,
-    count,
-    todaySeries
-  );
+  return <></>
+    // todayValue,
+    // count,
+    // todaySeries,
+  
 }
 
-const todayData =(todayValue)=>{
-  const value=todayValue;
-  return(
-    value
-  )
-}
+// const todayData =(todayValue)=>{
+//   const value=todayValue;
+//   return(
+//     value
+//   )
+// }
 
 
 
 //export default FetchData;
-export {CurrentDay, FetchData,todayData};
+export {CurrentDay, FetchData};
