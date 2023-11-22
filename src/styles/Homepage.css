@@ -1,0 +1,29 @@
+/* Homepage.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito+Sans:opsz@6..12&family=Poppins:wght@600&display=swap');
+
+body {
+  background-color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+p{
+  color: white;
+}
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+}
+
+.card img {
+  width: 50px; /* Set the width of your solar power icon */
+  height: 50px; /* Set the height of your solar power icon */
+  margin-bottom: 10px;
+}
