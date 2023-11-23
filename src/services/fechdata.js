@@ -38,6 +38,11 @@ const SolarCard = () => {
         const currentDateValues = apiData.filter((item) =>
           currentDate.includes(item.value)
         );
+        currentDateValues.sort((a, b) => {
+          const timeA = a.time;
+          const timeB = b.time;
+          return timeA.localeCompare(timeB);
+        });
         console.log(currentDateValues);
 
         const filteredValues = currentDateValues;
@@ -47,7 +52,7 @@ const SolarCard = () => {
           (accumulator, currentValue) => accumulator + currentValue.power,
           0
         );
-
+        
         setTodaySeries(filteredValues);
         setTodayValue(newSum);
         setCount(newCount);
