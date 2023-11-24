@@ -26,7 +26,7 @@
   }
   .scrollable-container {
     overflow-x: auto;
-    max-height: 200px;
+    max-height: 520px;
     padding: 10px; /* Add some padding to the container */
     border-top: 1px solid #ccc;
   }
@@ -37,6 +37,8 @@
   }
   
   .horizontal-card {
+    height: 50px;
+    width: 100%;
     background-color: #161A1D;
     padding: 10px;
     border-radius: 8px;

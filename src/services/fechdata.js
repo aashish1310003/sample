@@ -9,7 +9,12 @@ const SolarCard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const currentDate = new Date().toLocaleDateString();
+        const current = new Date();
+        const indianDate = new Date(current.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
+        const currentDate = indianDate.toLocaleDateString();
+
+console.log(currentDate);
+
 
         const data = {
           collection: "prediction",
@@ -33,17 +38,37 @@ const SolarCard = () => {
           id: doc._id,
           power: doc["Predicted Solar Power"],
           value: new Date(doc.period_end).toLocaleDateString(),
-          time: doc.period_end.slice(11, 16),
+          time: new Date(doc.period_end).toLocaleTimeString('en-US', {
+            timeZone: 'Asia/Kolkata',
+            hour12: false,
+          }).slice(0, 5),
         }));
+        
+        console.log(apiData);
+        
         const currentDateValues = apiData.filter((item) =>
           currentDate.includes(item.value)
         );
         currentDateValues.sort((a, b) => {
           const timeA = a.time;
           const timeB = b.time;
-          return timeA.localeCompare(timeB);
+        
+          // Compare based on time
+          const timeComparison = timeA.localeCompare(timeB);
+        
+          // If the times are different, use the time comparison result
+          if (timeComparison !== 0) {
+            return timeComparison;
+          } else {
+            // If times are the same, compare based on value
+            const valueA = a.value;
+            const valueB = b.value;
+            return valueA.localeCompare(valueB);
+          }
         });
+        
         console.log(currentDateValues);
+        
 
         const filteredValues = currentDateValues;
 
@@ -86,10 +111,14 @@ const SolarCard = () => {
     <p style={{ color: "white", marginLeft:20,marginTop:15, fontSize: "1.8em" }}>{todayValue.toFixed(2)}</p>
   </div>
   </div>
-  <div className="scrollable-container">
+  <div >
         <div className="horizontal-cards">
           {todaySeries.map((item) => (
-            <div key={item.id} className="horizontal-card">
+            <div key={item.id} style={{
+              height:50,width:100,
+              padding:20
+              
+              }}>
               <p style={{ color: "white" }}>Power: {item.power.toFixed(2)}</p>
               <p style={{ color: "white" }}>{item.time}</p>
             </div>

@@ -18,6 +18,7 @@ var formattedDates = next5Dates.map(function(date) {
 const Future = () => {
   
   const [futureData,setfutureData] = useState(0);
+  const [finalData,setFinalData] = useState(0);
     useEffect(() => {
         var data = JSON.stringify({
           "collection": "prediction",
@@ -61,6 +62,7 @@ const Future = () => {
         }));
         futureData.sort((a, b) => new Date(a.date) - new Date(b.date));
         console.log(futureData);
+        setFinalData(futureData)
       })
       .catch(function (error) {
         console.log(error);
@@ -68,7 +70,14 @@ const Future = () => {
   }, []); // Empty dependency array to trigger the request once on component mount
 
   return (
-   <></>
+   <>
+   {Array.isArray(finalData) && finalData.map((item, index) => (
+  <div key={item.id} className="horizontal-card">
+    <p style={{ color: "white" }}>Power: {item.sum}</p>
+  </div>
+))}
+
+   </>
   )
 };
 
